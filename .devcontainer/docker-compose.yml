@@ -1,0 +1,10 @@
+services:
+  dev:
+    build: 
+      context: ..
+      dockerfile: Dockerfile
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - ../:/opt/apps/app
+      - /opt/apps/app/bin
+      - /opt/apps/app/devops
