@@ -31,6 +31,5 @@ public class InventorySlot {
 
     public String display(){
         return this.item.map(item -> item.getName()).orElse("empty");
-        //return this.item.isEmpty() ? "empty" : this.item.get().getName();
     }
 }
