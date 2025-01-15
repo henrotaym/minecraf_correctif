@@ -1,9 +1,7 @@
 {
     "name": "Java",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": "."
-    },
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "dev",
     "workspaceFolder": "/opt/apps/app",
     "customizations": {
         "vscode": {
