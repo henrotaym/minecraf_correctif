@@ -11,8 +11,10 @@ Les monstres ont également un inventaire et celui-ci est aléatoire. Il est com
 La force du joueur et des monstres est basées sur leur armes dans l'inventaire.
 Le combat avec un monstre est au tour par tour et il se termine si un combattant n'a plus de PV.
 Le joueur démarre la partie avec 100PV
-Les monstres ont des PV aléatoires entre 15 et 50 PV.
+Les monstres ont des PV aléatoires entre 15 et 50 PV (entier).
 Les cases du jeu pourront contenir un item, un monstre ou rien du tout.
 Le jeu a une seule dimension et le joueur se déplace de case en case.
 Selon ce qu'il y a sur la case, le jeu proposera au joueur les actions adéquates.
+Le nombre de cases de la map est tiré aléatoirement (entier entre 15 et 30) au démarrage du jeu
 Si le joueur tombe à 0 PV, le jeu s'arrête.
+S'il n'y a plus de case, le jeu s'arrête.

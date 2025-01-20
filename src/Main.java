@@ -2,11 +2,11 @@
 
 import entities.Inventory;
 import exceptions.enums.ItemTypeException;
-import factories.entities.InventoryFactory;
+import factories.entities.SlotListInventoryFactory;
 
 public class Main {
     public static void main(String[] args) throws ItemTypeException {
-        Inventory inventory = new InventoryFactory(6).createInventory();
+        Inventory inventory = new SlotListInventoryFactory(6).createInventory();
         inventory.print();
     }
 }
