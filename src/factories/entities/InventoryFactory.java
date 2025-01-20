@@ -2,18 +2,17 @@ package factories.entities;
 
 import java.util.Optional;
 
-import abstracts.factories.SlotListFactory;
 import entities.Inventory;
 import entities.InventorySlot;
 
-public abstract class InventoryFactoryCopy {
+public class InventoryFactory {
     private Integer size;
 
-    public InventoryFactoryCopy(Integer size) {
+    public InventoryFactory(Integer size) {
         this.size = size;
     }
 
-    public Inventory createSlotList() {
+    public Inventory createInventory() {
         InventorySlot[] slots = new InventorySlot[this.size];
 
         for (int i = 0; i < slots.length; i++) {

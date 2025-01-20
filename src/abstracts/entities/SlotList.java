@@ -1,11 +1,9 @@
 package abstracts.entities;
 
-import java.util.List;
-
 public abstract class SlotList<S extends Slot> {
-    private List<S> slots;
+    private S[] slots;
 
-    public SlotList(List<S> slots){
+    public SlotList(S[] slots){
         this.slots = slots;
     }
 
