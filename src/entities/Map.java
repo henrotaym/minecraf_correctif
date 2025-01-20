@@ -4,8 +4,8 @@ import java.util.List;
 
 import abstracts.entities.SlotList;
 
-public class Inventory extends SlotList<InventorySlot> {
-    public Inventory(List<InventorySlot> slots) {
+public class Map extends SlotList<Tile> {
+    public Map(List<Tile> slots) {
         super(slots);
     }
 }
