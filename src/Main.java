@@ -1,12 +1,15 @@
 
 
-import entities.Inventory;
+import entities.Monster;
 import exceptions.enums.ItemTypeException;
-import factories.entities.SlotListInventoryFactory;
+import factories.entities.InventoryMonsterFactory;
+import factories.entities.MonsterInventoryFactory;
+import interfaces.entities.InventoryFactory;
 
 public class Main {
     public static void main(String[] args) throws ItemTypeException {
-        Inventory inventory = new SlotListInventoryFactory(6).createInventory();
-        inventory.print();
+        InventoryFactory inventoryFactory = new MonsterInventoryFactory();
+        Monster monster = new InventoryMonsterFactory(inventoryFactory).createMonster();
+        monster.getInventory().print();
     }
 }

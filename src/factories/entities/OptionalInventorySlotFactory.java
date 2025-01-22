@@ -14,5 +14,10 @@ public class OptionalInventorySlotFactory implements InventorySlotFactory {
     public InventorySlot createSlot() {
         return new InventorySlot(this.itemFactory.createOptional());
     }
+
+    @Override
+    public InventorySlot createElement() {
+        return this.createSlot();
+    }
     
 }

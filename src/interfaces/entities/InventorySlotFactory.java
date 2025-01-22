@@ -1,7 +1,8 @@
 package interfaces.entities;
 
 import entities.InventorySlot;
+import interfaces.ElementFactory;
 
-public interface InventorySlotFactory {
+public interface InventorySlotFactory extends ElementFactory<InventorySlot> {
     public InventorySlot createSlot();
 }

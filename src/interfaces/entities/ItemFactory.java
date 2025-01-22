@@ -1,7 +1,13 @@
 package interfaces.entities;
 
 import entities.Item;
+import interfaces.ElementFactory;
 
-public interface ItemFactory {
+public interface ItemFactory extends ElementFactory<Item> {
     public Item createItem();
+
+    @Override
+    default Item createElement() {
+        return this.createItem();
+    }
 }
