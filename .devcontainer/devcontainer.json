@@ -8,7 +8,8 @@
             "extensions": [
                 "ms-azuretools.vscode-docker",
                 "vscjava.vscode-java-debug",
-                "redhat.java"
+                "redhat.java",
+                "vscjava.vscode-java-dependency"
             ]
         }
     }

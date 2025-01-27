@@ -8,3 +8,27 @@ services:
       - ../:/opt/apps/app
       - /opt/apps/app/bin
       - /opt/apps/app/devops
+    networks:
+    - app
+  database:
+    image: "mysql/mysql-server:8.0"
+    ports:
+        - "3306:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: "root"
+        MYSQL_ROOT_HOST: "%"
+        MYSQL_DATABASE: "example_database"
+        MYSQL_USER: "user"
+        MYSQL_PASSWORD: "root"
+        MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+        - ../mysql/data:/var/lib/mysql
+    networks:
+        - app
+    healthcheck:
+        test: ["CMD", "mysqladmin", "ping", "-proot"]
+        retries: 3
+        timeout: 5s
+networks:
+    app:
+        driver: bridge
