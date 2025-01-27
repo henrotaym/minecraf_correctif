@@ -1,4 +1,4 @@
-package interfaces.entities;
+package interfaces.factories.entities;
 
 import entities.Inventory;
 

@@ -1,15 +1,18 @@
 
 
-import entities.Monster;
+
+import entities.Map;
+import entities.Tile;
 import exceptions.enums.ItemTypeException;
-import factories.entities.InventoryMonsterFactory;
-import factories.entities.MonsterInventoryFactory;
-import interfaces.entities.InventoryFactory;
+import factories.entities.RandomTileFactory;
+import factories.entities.TileListMapFactory;
 
 public class Main {
     public static void main(String[] args) throws ItemTypeException {
-        InventoryFactory inventoryFactory = new MonsterInventoryFactory();
-        Monster monster = new InventoryMonsterFactory(inventoryFactory).createMonster();
-        monster.getInventory().print();
+        Tile tile = new RandomTileFactory().createTile();
+        System.out.println(tile.display());
+        Map map = new TileListMapFactory().createMap();
+
+        map.print();
     }
 }

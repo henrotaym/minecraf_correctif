@@ -1,8 +1,9 @@
 package entities;
 
 import enums.ItemType;
+import interfaces.entities.Slotable;
 
-public class Item {
+public class Item implements Slotable {
     private String name;
     public ItemType type;
 
@@ -17,5 +18,10 @@ public class Item {
 
     public ItemType getType(){
         return this.type;
+    }
+
+    @Override
+    public String display() {
+        return this.getName();
     }
 }

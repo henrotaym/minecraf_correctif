@@ -4,33 +4,34 @@ import java.util.Optional;
 
 import entities.Item;
 import exceptions.abstracts.entities.SlotException;
+import interfaces.entities.Slotable;
 
-public abstract class Slot {
-    private Optional<Item> item;
+public abstract class Slot<T extends Slotable> {
+    private Optional<T> slotable;
 
-    public Slot(Optional<Item> item) {
-        this.item = item;
+    public Slot(Optional<T> slotable) {
+        this.slotable = slotable;
     }
 
-    public Optional<Item> getItem(){
-        return this.item;
+    public Optional<T> getSlotable(){
+        return this.slotable;
     }
 
-    public void addItem(Item item) throws SlotException{
-        if(this.item.isPresent()){
+    public void addItem(T slotable) throws SlotException{
+        if(this.slotable.isPresent()){
             throw new SlotException("Cannot add item to a slot that is not empty.");
         } 
-        this.item = Optional.of(item);
+        this.slotable = Optional.of(slotable);
     }
 
-    public void removeItem(Item item) throws SlotException{
-        if(this.item.isEmpty()){
+    public void removeItem(T slotable) throws SlotException{
+        if(this.slotable.isEmpty()){
             throw new SlotException("Cannot remove an empty slot.");
         } 
-        this.item = Optional.of(item);
+        this.slotable = Optional.of(slotable);
     }
 
     public String display(){
-        return this.item.map(item -> item.getName()).orElse("empty");
+        return this.slotable.map(slotable -> slotable.display()).orElse("empty");
     }
 }

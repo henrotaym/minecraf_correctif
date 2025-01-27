@@ -1,25 +1,29 @@
 package factories.entities;
 
-import Helpers.RandomHelper;
+import abstracts.RandomNamablesFactory;
 import entities.Item;
 import enums.ItemType;
-import exceptions.enums.ItemTypeException;
-import interfaces.entities.ItemFactory;
+import interfaces.factories.entities.ItemFactory;
 
-public class RandomItemFactory implements ItemFactory {
-    private ItemType[] types = ItemType.values();
-    private RandomHelper randomHelper = new RandomHelper();
+public class RandomItemFactory extends RandomNamablesFactory<ItemType, Item> implements ItemFactory {
 
-    public Item createItem() {
-        ItemType type = this.randomHelper.list(this.types);
-        try {
-            String[] names = type.getNames();
-            String name = this.randomHelper.list(names);
-            
-            return new Item(name, type);
-        } catch (ItemTypeException e) {
-            return new Item("apple", ItemType.FOOD);
-        }
-        
+    public RandomItemFactory() {
+        super(ItemType.values());
     }
+    
+    @Override
+    public Item createItem() {
+        return this.createElement();
+    }
+
+    @Override
+    public Item getDefaultValue() {
+        return new Item("apple", ItemType.FOOD);
+    }
+
+    @Override
+    public Item getValue(String name, ItemType type) {
+        return new Item(name, type);
+    }
+    
 }

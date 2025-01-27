@@ -3,7 +3,7 @@ package factories.entities;
 import entities.InventorySlot;
 import entities.Item;
 import interfaces.OptionalFactory;
-import interfaces.entities.InventorySlotFactory;
+import interfaces.factories.entities.InventorySlotFactory;
 
 public class OptionalInventorySlotFactory implements InventorySlotFactory {
     private OptionalFactory<Item> itemFactory;

@@ -1,12 +1,14 @@
 package enums;
 
 import exceptions.enums.ItemTypeException;
+import interfaces.Namables;
 
-public enum ItemType {
+public enum ItemType implements Namables {
     WEAPON,
     FOOD;
 
-    public String[] getNames() throws ItemTypeException {
+    @Override
+    public String[] getNames() throws Exception {
         switch (this) {
             case WEAPON:
                 return new String[] { "bow", "sword", "knife" };

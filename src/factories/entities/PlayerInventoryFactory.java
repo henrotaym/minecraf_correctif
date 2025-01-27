@@ -7,13 +7,14 @@ import factories.EmptyOptionalFactory;
 import factories.SizedListFactory;
 import interfaces.ElementFactory;
 import interfaces.ListFactory;
-import interfaces.entities.InventoryFactory;
+import interfaces.OptionalFactory;
+import interfaces.factories.entities.InventoryFactory;
 
 public class PlayerInventoryFactory implements InventoryFactory {
 
     @Override
     public Inventory createInventory() {
-        EmptyOptionalFactory<Item> optionalItemFactory = new EmptyOptionalFactory<Item>();
+        OptionalFactory<Item> optionalItemFactory = new EmptyOptionalFactory<Item>();
         ElementFactory<InventorySlot> slotFactory = new OptionalInventorySlotFactory(optionalItemFactory);
         ListFactory<InventorySlot> slotListFactory = new SizedListFactory<InventorySlot>(6, slotFactory);
         SlotListInventoryFactory inventoryFactory = new SlotListInventoryFactory(slotListFactory);

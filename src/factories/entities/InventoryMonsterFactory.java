@@ -1,21 +1,32 @@
 package factories.entities;
 
-import entities.Inventory;
+import abstracts.RandomNamablesFactory;
 import entities.Monster;
-import interfaces.entities.InventoryFactory;
-import interfaces.entities.MonsterFactory;
+import enums.MonsterType;
+import interfaces.factories.entities.InventoryFactory;
+import interfaces.factories.entities.MonsterFactory;
 
-public class InventoryMonsterFactory implements MonsterFactory {
+public class InventoryMonsterFactory extends RandomNamablesFactory<MonsterType, Monster> implements MonsterFactory {
     private InventoryFactory inventoryFactory;
+    
     public InventoryMonsterFactory(InventoryFactory inventoryFactory) {
+        super(MonsterType.values());
         this.inventoryFactory = inventoryFactory;
     }
 
     @Override
     public Monster createMonster() {
-        Inventory inventory = this.inventoryFactory.createInventory();
+        return this.createElement();
+    }
 
-        return new Monster(inventory);
+    @Override
+    public Monster getDefaultValue() {
+        return new Monster(this.inventoryFactory.createInventory(), "choupisson");
+    }
+
+    @Override
+    public Monster getValue(String name, MonsterType type) {
+        return new Monster(this.inventoryFactory.createInventory(), name);
     }
     
 }
